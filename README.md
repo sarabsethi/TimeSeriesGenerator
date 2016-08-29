@@ -1,1 +1,1 @@
-# TimeSeriesGenerator
+# TimeSeriesGeneratorMatlab
