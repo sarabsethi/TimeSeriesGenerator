@@ -3,9 +3,9 @@ clear all;
 load('datasets.mat','normTrainFeats','trainSigs');
 
 % Train network
-net = newgrnn(normTrainFeats,trainSigs,0.05);
+net = newgrnn(normTrainFeats,trainSigs,0.01);
 
-%net = newrbe(normTrainFeats,trainSigs,0.1);
+% net = newrbe(normTrainFeats,trainSigs,1);
 
 % hiddenNeurons = 10;
 % net = fitnet(hiddenNeurons,'trainbfg');

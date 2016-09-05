@@ -16,6 +16,7 @@ meanNearestErr = nanmean(nearestErrs);
 % Calculate network ouput signals on test feature vectors
 predictedSigs = sim(net,normTestFeats);
 predictedFeats = calcHctsaFeats(predictedSigs,opIds);
+% predictedFeats = calcAlexFeats(predictedSigs);
 normPredictedFeats = normaliseFeatVec(predictedFeats,normInfo);
 predErrs = getFeatVecErrors(normTestFeats,normPredictedFeats);
 meanPredErr = nanmean(predErrs);
