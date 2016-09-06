@@ -5,7 +5,7 @@ function [sigs, feats] = createHctsaDataset(hctsaFile, minSigLength , ...
 load(hctsaFile);
 
 nOps = length(opIds);
-opIdxs = intersect([Operations.ID],opIds);
+[~,opIdxs] = intersect([Operations.ID],opIds);
 nTS = length(tsIdxs);
 
 sigs = zeros(minSigLength,nTS);

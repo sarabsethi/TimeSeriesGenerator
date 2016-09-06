@@ -1,7 +1,7 @@
 function feats = calcHctsaFeats( sigs , opIds )
 
 Operations = SQL_add('ops', 'INP_ops.txt', 0, 0);
-opIdxs = intersect([Operations.ID],opIds);
+[~,opIdxs] = intersect([Operations.ID],opIds);
 Operations = Operations(opIdxs);
 
 feats = zeros(length(opIdxs),size(sigs,2));

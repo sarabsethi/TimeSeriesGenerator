@@ -6,10 +6,9 @@ load('datasets.mat','trainFeats','trainSigs','normTrainFeats',...
     'normInfo','opIds','sigLength');
 
 % Find nearest neighbours to each test feature vector
-knn_idxs = knnsearch(trainFeats',testFeats');
+knn_idxs = knnsearch(normTrainFeats',normTestFeats');
 nearestSigs = trainSigs(:,knn_idxs);
-nearestFeats = trainFeats(:,knn_idxs);
-normNearestFeats = normaliseFeatVec(nearestFeats,normInfo);
+normNearestFeats = normTrainFeats(:,knn_idxs);
 nearestErrs = getFeatVecErrors(normTestFeats,normNearestFeats);
 meanNearestErr = nanmean(nearestErrs);
 
@@ -38,5 +37,5 @@ for i = 1:5
     
     subplot(3,5,i+10);
     plot(nearestSigs(:,i));
-    title(sprintf('Nearest neighbour %i  (err = %.3f)',i,nearestErrs(i)));
+    title(sprintf('NearestNghb %i  (err = %.3f)',i,nearestErrs(i)));
 end

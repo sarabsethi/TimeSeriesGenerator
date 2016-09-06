@@ -6,9 +6,10 @@ opIds = [autoChosenOps.ID];
 trainIdxs = 1:800;
 testIdxs = 815:820;
 sigLength = 150;
+hctsaFile = 'HCTSA_sine.mat';
 
 % Create training dataset
-[trainSigs, trainFeats] = createHctsaDataset('HCTSA_sine.mat',...
+[trainSigs, trainFeats] = createHctsaDataset(hctsaFile,...
     sigLength,trainIdxs,opIds);
 
 % trainFeats = calcAlexFeats(trainSigs);
@@ -16,7 +17,7 @@ sigLength = 150;
 [normTrainFeats,normInfo] = normaliseFeatVec(trainFeats);
 
 % Create testing dataset
-[testSigs, testFeats] = createHctsaDataset('HCTSA_sine.mat',sigLength,...
+[testSigs, testFeats] = createHctsaDataset(hctsaFile,sigLength,...
     testIdxs,opIds);
 
 % testFeats = calcAlexFeats(trainSigs);
